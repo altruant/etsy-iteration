@@ -24,7 +24,7 @@ console.log("$" + avgPrice);
   });
   // getting the array of the items found
   const final = fourteenEighteen.map(function(item){
-    return item.title;
+    return item;
   });
 
   console.log("Items that cost between $14.00 USD and $18.00 USD:", final);
@@ -38,7 +38,7 @@ console.log("$" + avgPrice);
   // console.log(found)
   // printing the found information into the console using a forEach method
   const GBP = found.forEach(function(item) {
-    console.log(item.title + " costs £" + item.price);
+    console.log(`${item.title} costs £${item.price}`);
   })
 
 
@@ -51,7 +51,7 @@ const woodFind = items.filter(function(item){
 
 //logging which items are made of wood
 const woodLog = woodFind.forEach(function(item){
-  console.log(`${item.title} costs $${item.price}`)
+  console.log(`${item.title} is made of wood.`)
 });
 
 // 5. Find which items are made of eight or more materials
@@ -59,6 +59,20 @@ const woodLog = woodFind.forEach(function(item){
 const matFind = items.filter(function(item){
   return item.materials.length >= 8
 });
+
 const itemLog = matFind.forEach(function(item){
-  console.log(item.title + "has " + item.materials.length)
+  console.log(`${item.title} has ${item.materials.length} materials:
+
+${item.materials.map(function(item){
+      return item;
+    }).join("\n")
+  }`)
+});
+
+// 6.
+
+madeBySeller = items.filter(function(item){
+    return item.who_made === "i_did"
 })
+
+console.log(`${madeBySeller.length} were made by their sellers.`)
